@@ -3,6 +3,8 @@ import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
 import NetworkBackground from "@/components/ui/NetworkBackground";
 import CursorEffects from "@/components/ui/CursorEffects";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
@@ -13,7 +15,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 // ⚠️ Deploy এর পর Vercel এর আসল link দিয়ে বদলাও
-const SITE_URL = "https://abrar-karim.vercel.app";
+const SITE_URL = "https://abrarulkarim.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -49,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <NetworkBackground />
+        <SpeedInsights />
         <CursorEffects />
         {children}
       </body>
