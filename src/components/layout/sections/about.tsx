@@ -16,22 +16,25 @@ export default function About() {
         </Reveal>
 
 
+
         {/* Education Card */}
         <Reveal delay={120}>
-          <div className="group relative overflow-hidden rounded-xl border border-border/80 bg-[#1b1c38] p-5 transition-all duration-300 hover:border-accent/40 hover:bg-[#222342] sm:p-6">            <div className="flex items-center gap-3">
-            <GraduationCap size={20} className="text-accent" />
-            <h4 className="text-base font-semibold leading-7 text-foreground transition-colors duration-300 group-hover:text-accent">
-              Education            </h4>
-          </div>
+          <div className="space-y-5">
+            <div className="flex items-center gap-3">
+              <GraduationCap size={20} className="text-accent" />
+              <h3 className="text-sm font-semibold text-foreground">
+                Education
+              </h3>
+            </div>
 
-            <div className="group relative overflow-hidden rounded-lg border border-border/70 bg-[#101126] p-5 transition-all duration-300 hover:border-accent/30 hover:bg-[#14152d] sm:p-6">
+            <div className="group rounded-xl border border-border bg-white/60 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-md dark:bg-white/[0.05] sm:p-6">
               <div className="flex flex-col gap-3">
-                <div className="flex items-start justify-between gap-3">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-muted">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-[10px] font-mono font-medium uppercase tracking-[0.15em] text-muted">
                     Academic Background
                   </span>
 
-                  <span className="text-[11px] font-mono text-muted">
+                  <span className="shrink-0 text-xs font-mono text-muted">
                     {education.period}
                   </span>
                 </div>
@@ -40,11 +43,11 @@ export default function About() {
                   {education.degree}
                 </h4>
 
-                <p className="text-sm font-medium text-muted">
+                <p className="text-sm font-medium text-accent">
                   {education.university}
                 </p>
 
-                <div className="my-2 h-px w-full bg-border/70" />
+                <div className="my-2 h-px bg-border" />
 
                 <p className="text-sm leading-7 text-muted">
                   Focused on full-stack development, software architecture, and
@@ -54,6 +57,7 @@ export default function About() {
             </div>
           </div>
         </Reveal>
+
 
       </div>
     </Section>
