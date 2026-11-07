@@ -1,20 +1,31 @@
+
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
+import Script from "next/script";
 import NetworkBackground from "@/components/ui/NetworkBackground";
 import CursorEffects from "@/components/ui/CursorEffects";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit", display: "swap" });
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
   display: "swap",
 });
 
-// ⚠️ Deploy এর পর Vercel এর আসল link দিয়ে বদলাও
+// Deploy এর পর Vercel এর আসল link দিয়ে বদলাও
 const SITE_URL = "https://abrarulkarim.vercel.app/";
 
 export const metadata: Metadata = {
@@ -22,7 +33,13 @@ export const metadata: Metadata = {
   title: "Abrar Ul Karim | Full-Stack Developer",
   description:
     "Portfolio of Abrar Ul Karim, a Computer Science & Engineering undergraduate focused on full-stack web development and intelligent systems.",
-  keywords: ["Full-Stack Developer", "Next.js", "NestJS", "Machine Learning", "Portfolio"],
+  keywords: [
+    "Full-Stack Developer",
+    "Next.js",
+    "NestJS",
+    "Machine Learning",
+    "Portfolio",
+  ],
   authors: [{ name: "Abrar Ul Karim" }],
   openGraph: {
     title: "Abrar Ul Karim | Full-Stack Developer",
@@ -36,10 +53,13 @@ export const viewport: Viewport = {
   themeColor: "#0a0b24",
 };
 
-// Saved theme না থাকলে dark ই default। পেজ আঁকার আগেই চলে, তাই সাদা ঝলক আসে না
 const themeScript = `(function(){try{var t=localStorage.getItem("theme")||"dark";document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","dark")}})();`;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
@@ -47,8 +67,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${outfit.variable} ${jetbrains.variable}`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
       </head>
+
       <body>
         <NetworkBackground />
         <SpeedInsights />

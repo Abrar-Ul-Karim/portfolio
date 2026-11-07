@@ -2,7 +2,7 @@ export const profile = {
   name: "Abrar Ul Karim",
   initials: "AK",
   role: "Full-Stack Developer",
-  roles: ["Full-Stack Developer", "Software Engineer", "ML Researcher"], // ← নতুন
+  roles: ["Full-Stack Developer", "Software Engineer", "ML Researcher", "System Design Enthusiast"],
   status: "Available for opportunities",
   tagline:
     "Software engineer focused on full-stack web development and intelligent systems.",
@@ -26,20 +26,19 @@ export const navLinks = [
 ];
 
 export const aboutParagraphs = [
-  "I enjoy building software from the ground up, from designing how a system should work to creating a final product that feels intuitive and useful to the user.",
-  "I'm a Computer Science & Engineering undergraduate at American International University-Bangladesh with a strong interest in full-stack development, software architecture, and machine learning. My experience includes developing web applications and backend systems, as well as exploring machine learning problems through research and experimentation.",
-  "Currently, I'm focused on strengthening my software development skills while building a solid foundation in software engineering, design patterns, and intelligent systems.",
+  "I’m a Computer Science and Engineering undergraduate at American International University-Bangladesh (AIUB), passionate about building reliable, scalable, and user-focused software solutions.",
+  "My interests include full-stack development, software architecture, system design, and machine learning. Through academic and personal projects, I have gained experience developing web applications and backend systems while exploring machine learning techniques through research and experimentation.",
+  "I’m continuously working to strengthen my software engineering skills, deepen my understanding of software design principles and design patterns, and build practical solutions that combine thoughtful engineering with real-world problem-solving.",
 ];
 
-// ⚠️ নিজের certification দিয়ে বদলাও (খালি রাখলে "coming soon" দেখাবে)
-export const certifications: { name: string; issuer: string; year: string }[] = [];
+//export const certifications: { name: string; issuer: string; year: string }[] = [];
 
 
 
 export type Skill = {
   name: string;
-  devicon?: string; // Devicon এর logo নাম
-  invert?: boolean; // কালো logo dark background এ সাদা করার জন্য
+  devicon?: string;
+  invert?: boolean;
   icon?: "api" | "key" | "database" | "oop" | "mvc" | "architecture" | "dsa"; // logo না থাকলে lucide icon
 };
 
@@ -104,45 +103,130 @@ export const projects = [
     title: "InternNova",
     subtitle: "Internship Management Platform",
     description:
-      "A web-based internship management platform for managing companies, internships, applications, interviews, and users.",
+      "A web based internship management platform for managing companies, internships, applications, interviews, and users.",
     stack: ["Next.js", "NestJS", "PostgreSQL", "TypeScript"],
     live: "#",
-    github: "#",
+    github: "https://github.com/marufbytes/internnova",
   },
   {
     title: "Telecommunication Management System",
-    subtitle: "",
+    subtitle: "Desktop Application",
     description:
-      "A web-based system designed to manage telecommunication-related services, users, and operational information.",
-    stack: ["C#","Windows form application",'Guna UI','MetroFramework','Microsoft SQL Server'],
+      "A desktop-based telecommunication management system developed to streamline SIM inventory, customer account management, package operations, employee activities, and mobile recharge services.",
+    stack: [
+      "C#",
+      ".NET Framework 4.7.2",
+      "Windows Forms",
+      "Guna.UI2",
+      "MetroModernUI",
+      "Microsoft SQL Server",
+      "ADO.NET"
+    ],
     live: "#",
-    github: "#",
+    github: "https://github.com/Abrar-Ul-Karim/TelecomCore-Telecommunication-Management-System",
+  },
+
+  {
+    title: "HSC 2026 Wishcard Generator",
+    subtitle: "Web Application",
+    description:
+      "A web-based wishcard generator that allows users to create personalized HSC 2026 greeting cards with Bengali text and download them as high-quality PNG images for sharing.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "html-to-image"
+    ],
+    github:"https://github.com/Abrar-Ul-Karim/WishCard",
+    live: "https://resultwishes.vercel.app/",
+  },
+
+];
+;
+
+
+export const research = [
+  {
+    status: "Accepted",
+    venue: "IEEE RAAICON 2025",
+    title:
+      "Optimizing Surgery Room Scheduling with Comparative Metaheuristic Algorithms",
+    summary:
+      "Compared five metaheuristic algorithms for emergency surgery room scheduling, analyzing execution time, memory usage, cache behavior, and computational efficiency.",
+
+    algorithms: [
+      { short: "PSO", name: "Particle Swarm Optimization" },
+      { short: "ACO", name: "Ant Colony Optimization" },
+      { short: "GA", name: "Genetic Algorithm" },
+      { short: "SA", name: "Simulated Annealing" },
+      { short: "TS", name: "Tabu Search" },
+    ],
+
+    metrics: [
+      { label: "Execution time", icon: "time" },
+      { label: "Memory usage", icon: "memory" },
+      { label: "Cache behavior", icon: "cache" },
+      { label: "Computational efficiency", icon: "efficiency" },
+    ] as {
+      label: string;
+      icon: "time" | "memory" | "cache" | "efficiency";
+    }[],
+
+    doi: "10.1109/RAAICON69033.2025.11502411",
+  },
+
+  {
+    status: "Research Project",
+    title:
+      "Seasonality-Aware Explainable Demand Forecasting for Power Utility Decision Support",
+
+    summary:
+      "Proposed a seasonality-aware framework for one-hour-ahead electricity demand forecasting, abnormality detection, and model explanation. The framework combines gradient boosting, causal anomaly detection, and seasonal-reference SHAP analysis to provide contextually aligned explanations of unusual demand patterns.",
+
+    methodology: [
+      {
+        category: "Forecasting Model",
+        methods: ["LightGBM Regression"],
+      },
+      {
+        category: "Abnormality Detection",
+        methods: [
+          "Seasonal Decomposition",
+          "Robust MAD-Based Detection",
+        ],
+      },
+      {
+        category: "Explainability",
+        methods: [
+          "TreeSHAP",
+          "Seasonal-Reference SHAP Analysis",
+        ],
+      },
+    ],
+
+    dataSources: [
+      "EIA-930 ERCOT Electricity Demand",
+      "NOAA Weather Data",
+    ],
+
+    evaluation: [
+      { label: "MAE", value: "500.34" },
+      { label: "RMSE", value: "711.07" },
+      { label: "MAPE", value: "0.888%" },
+      { label: "R²", value: "0.9954" },
+    ],
+
+    keyFinding: {
+      label: "Explanation Direction Agreement",
+      value: "98.90%",
+      comparison:
+        "Compared to 48.76% using previous-observation references",
+    },
+
+    period: "2016–2025",
   },
 ];
 
-
-
-export const research = {
-  status: "Accepted",
-  venue: "IEEE RAAICON 2025",
-  title: "Optimizing Surgery Room Scheduling with Comparative Metaheuristic Algorithms",
-  summary:
-    "Compared five metaheuristic algorithms for emergency surgery room scheduling, analyzing execution time, memory usage, cache behavior, and computational efficiency.",
-  algorithms: [
-    { short: "PSO", name: "Particle Swarm Optimization" },
-    { short: "ACO", name: "Ant Colony Optimization" },
-    { short: "GA", name: "Genetic Algorithm" },
-    { short: "SA", name: "Simulated Annealing" },
-    { short: "TS", name: "Tabu Search" },
-  ],
-  metrics: [
-    { label: "Execution time", icon: "time" },
-    { label: "Memory usage", icon: "memory" },
-    { label: "Cache behavior", icon: "cache" },
-    { label: "Computational efficiency", icon: "efficiency" },
-  ] as { label: string; icon: "time" | "memory" | "cache" | "efficiency" }[],
-  doi: "10.1109/RAAICON69033.2025.11502411",
-};
 
 
 
