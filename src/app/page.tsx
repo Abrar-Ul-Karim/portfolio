@@ -8,15 +8,18 @@ import Research from "@/components/layout/sections/research";
 import Education from "@/components/layout/sections/education";
 import ResumeCta from "@/components/layout/sections/resumeCta";
 import Contact from "@/components/layout/sections/contact";
+import IntroVideo from "@/components/layout/sections/IntroVideo";
 
 
 export default function Home() {
+
   return (
     <>
       <Navbar />
       <main>
         <Hero />
         <About />
+        <IntroVideo />
         <Skills />
         <Projects />
         <Research />
@@ -26,4 +29,5 @@ export default function Home() {
       <Footer />
     </>
   );
+
 }
